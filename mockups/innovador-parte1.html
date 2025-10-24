@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimizado -->
+    <title>The Accelerator | Programa de Formación Freelance Workana</title>
+    <meta name="description" content="Acelera tu carrera freelance con 9 módulos de capacitación, proyecto 5 estrellas garantizado y membresía Explorer. Comienza a ganar en proyectos remotos.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colores principales */
+            --color-primary-dark: #002D72;
+            --color-primary-green: #AAD832;
+            --color-primary-white: #FFFFFF;
+            
+            /* Secundarios */
+            --color-secondary-purple-light: #F3F0FE;
+            --color-secondary-purple-dark: #2E1774;
+            --color-accent-cyan: #00D9FF;
+            --color-accent-pink: #FF0080;
+            --color-accent-orange: #FF6B00;
+            
+            /* Neutros */
+            --color-neutral-100: #F8F8F8;
+            --color-neutral-200: #EEEEEE;
+            --color-neutral-300: #D1D1D1;
+            --color-neutral-700: #4A4A4A;
+            --color-neutral-900: #181818;
+            
+            /* Espaciado */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            
+            /* Tipografía */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-neutral-900);
+            line-height: 1.6;
+            background: #000;
+            overflow-x: hidden;
+        }
+
+        /* Cursor personalizado */
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-primary-green);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(170, 216, 50, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            mix-blend-mode: difference;
+        }
+
+        /* Header Glassmorphism */
+        .header {
+            background: rgba(0, 45, 114, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(170, 216, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 12px 0;
+            background: rgba(0, 45, 114, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo img {
+            max-width: 140px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            position: relative;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary-green), var(--color-accent-cyan));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary-green);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section - Diseño Diagonal Revolucionario */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #002D72 50%, #2E1774 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 120px var(--space-lg) var(--space-3xl);
+        }
+
+        /* Fondo animado con partículas */
+        .hero-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--color-primary-green);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float-particles 20s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) {
+            width: 4px;
+            height: 4px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 6px;
+            height: 6px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            width: 3px;
+            height: 3px;
+            top: 40%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            width: 5px;
+            height: 5px;
+            top: 80%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(5) {
+            width: 4px;
+            height: 4px;
+            top: 30%;
+            left: 90%;
+            animation-delay: 8s;
+        }
+
+        @keyframes float-particles {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(50px, -50px) scale(1.5);
+                opacity: 0.6;
+            }
+        }
+
+        /* Grid diagonal */
+        .diagonal-grid {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(45deg, rgba(170, 216, 50, 0.03) 1px, transparent 1px),
+                linear-gradient(-45deg, rgba(170, 216, 50, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: rotate-grid 60s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate-grid {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        /* Badge con efecto neón */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            background: rgba(170, 216, 50, 0.1);
+            border: 2px solid var(--color-primary-green);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(170, 216, 50, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(170, 216, 50, 0.6);
+            }
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .badge-icon {
+            animation: rotate-icon 3s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes rotate-icon {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .badge-price {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 8px;
+            padding-left: 12px;
+            border-left: 1px solid rgba(170, 216, 50, 0.3);
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.6;
+            font-size: 13px;
+            position: relative;
+        }
+
+        .price-new {
+            font-size: 18px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Título con efecto 3D */
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+            font-weight: 900;
+            position: relative;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan), var(--color-accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            animation: gradient-shift 5s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideInFromLeft 1s ease-out 0.2s backwards;
+        }
+
+        .hero-description {
+            font-size: 20px;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: var(--space-xl);
+            animation: slideInFromLeft 1s ease-out 0.4s backwards;
+        }
+
+        /* Stats con animación de contador y efectos */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            padding: var(--space-lg) 0;
+            animation: slideInFromLeft 1s ease-out 0.6s backwards;
+        }
+
+        .stat-item {
+            text-align: left;
+            position: relative;
+            padding: var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(170, 216, 50, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--color-primary-green), var(--color-accent-cyan));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom;
+        }
+
+        .stat-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(170, 216, 50, 0.3);
+            border-color: var(--color-primary-green);
+        }
+
+        .stat-number {
+            font-size: 40px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        /* CTAs con microinteracciones */
+        .cta-group {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            flex-wrap: wrap;
+            animation: slideInFromLeft 1s ease-out 0.8s backwards;
+        }
+
+        .cta-primary {
+            padding: 20px 48px;
+            background: linear-gradient(135deg, var(--color-primary-green), #98C428);
+            color: var(--color-neutral-900);
+            font-size: 18px;
+            font-weight: 900;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 40px rgba(170, 216, 50, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(170, 216, 50, 0.6);
+        }
+
+        .cta-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .cta-arrow {
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-primary:hover .cta-arrow {
+            transform: translateX(5px);
+        }
+
+        .cta-secondary {
+            padding: 20px 48px;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            border: 3px solid white;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-secondary:hover::before {
+            left: 0;
+        }
+
+        .cta-secondary:hover {
+            color: var(--color-primary-dark);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        /* HERO VISUAL INNOVADOR - Continuará en parte 2 */
+        /* CONTINUACIÓN DEL HERO VISUAL */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            animation: slideInFromRight 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Diseño 3D con perspectiva */
+        .hero-visual-3d {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .image-stack {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stack-layer {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .stack-layer:nth-child(1) {
+            transform: translate(-50%, -50%) rotateY(-15deg) rotateX(5deg) translateZ(100px);
+            z-index: 3;
+        }
+
+        .stack-layer:nth-child(2) {
+            transform: translate(-50%, -50%) rotateY(-10deg) rotateX(3deg) translateZ(50px);
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .stack-layer:nth-child(3) {
+            transform: translate(-50%, -50%) rotateY(-5deg) rotateX(1deg) translateZ(0px);
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .hero-visual-3d:hover .stack-layer:nth-child(1) {
+            transform: translate(-50%, -50%) rotateY(-5deg) rotateX(2deg) translateZ(150px);
+        }
+
+        .hero-visual-3d:hover .stack-layer:nth-child(2) {
+            transform: translate(-50%, -50%) rotateY(-3deg) rotateX(1deg) translateZ(75px);
+        }
+
+        .stack-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Tarjetas flotantes mejoradas */
+        .floating-card-enhanced {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 20px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: float-enhanced 4s ease-in-out infinite;
+            z-index: 10;
+            border: 2px solid rgba(170, 216, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .floating-card-enhanced:hover {
+            transform: scale(1.1) translateY(-10px);
+            box-shadow: 0 30px 80px rgba(170, 216, 50, 0.4);
+            border-color: var(--color-primary-green);
+        }
+
+        @keyframes float-enhanced {
+            0%, 100% {
+                transform: translateY(0) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(2deg);
+            }
+        }
+
+        .floating-card-enhanced.card-1 {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .floating-card-enhanced.card-2 {
+            bottom: 15%;
+            left: -10%;
+            animation-delay: 2s;
+        }
+
+        .card-icon-large {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+            animation: bounce-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-icon {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .card-text-bold {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--color-primary-dark);
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .card-subtext-enhanced {
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* TESTIMONIOS - Diseño Carousel 3D */
+        .testimonios-section {
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonios-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(170, 216, 50, 0.1), transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 217, 255, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .section {
+            padding: var(--space-3xl) var(--space-lg);
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-eyebrow {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-eyebrow::before,
+        .section-eyebrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 2px;
+            background: var(--color-primary-green);
+        }
+
+        .section-eyebrow::before {
+            right: calc(100% + 16px);
+        }
+
+        .section-eyebrow::after {
+            left: calc(100% + 16px);
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 56px;
+            color: white;
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+            font-weight: 900;
+            background: linear-gradient(135deg, white, var(--color-primary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-description {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-3xl);
+            flex-wrap: wrap;
+        }
+
+        .stats-row .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: var(--space-lg);
+            border-radius: 20px;
+            border: 2px solid rgba(170, 216, 50, 0.2);
+            min-width: 200px;
+            transition: all 0.4s ease;
+        }
+
+        .stats-row .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--color-primary-green);
+            box-shadow: 0 20px 60px rgba(170, 216, 50, 0.3);
+        }
+
+        /* Testimonials con efecto de carrusel */
+        .testimonials-carousel {
+            position: relative;
+            height: 600px;
+            perspective: 1500px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 2px solid rgba(170, 216, 50, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary-green), var(--color-accent-cyan), var(--color-accent-pink));
+            background-size: 200% 100%;
+            animation: gradient-move 3s ease infinite;
+        }
+
+        @keyframes gradient-move {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 80px rgba(170, 216, 50, 0.4);
+            border-color: var(--color-primary-green);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, var(--color-primary-dark), #1a4d8f);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .testimonial-card:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+
+        .play-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--color-neutral-900);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(170, 216, 50, 0.5);
+            animation: pulse-play 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-play {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(170, 216, 50, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 15px 50px rgba(170, 216, 50, 0.7);
+            }
+        }
+
+        .testimonial-card:hover .play-button {
+            transform: scale(1.2) rotate(90deg);
+        }
+
+        .testimonial-content {
+            padding: var(--space-lg);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--color-neutral-900);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .author-name {
+            font-size: 18px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .author-role {
+            font-size: 14px;
+            color: var(--color-primary-green);
+            font-weight: 600;
+        }
+
+        .testimonial-stars {
+            color: #FFD700;
+            font-size: 18px;
+            margin-bottom: var(--space-sm);
+            letter-spacing: 4px;
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* BENEFICIOS - Cards Interactivas con Tilt */
+        .benefits-section {
+            background: linear-gradient(180deg, #000 0%, #002D72 50%, #000 100%);
+            position: relative;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 48px;
+            border: 2px solid rgba(170, 216, 50, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(170, 216, 50, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-20px) rotateX(5deg);
+            box-shadow: 0 40px 100px rgba(170, 216, 50, 0.4);
+            border-color: var(--color-primary-green);
+        }
+
+        .card-icon-wrapper {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+            font-size: 50px;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 40px rgba(170, 216, 50, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-icon-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .benefit-card:hover .card-icon-wrapper::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .benefit-card:hover .card-icon-wrapper {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 20px 60px rgba(170, 216, 50, 0.6);
+        }
+
+        .card-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: var(--space-md);
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+
+        .card-features li {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary-green);
+            font-weight: 900;
+            font-size: 20px;
+            width: 28px;
+            height: 28px;
+            background: rgba(170, 216, 50, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .card-features li:hover {
+            transform: translateX(10px);
+            color: var(--color-primary-green);
+        }
+
+        .card-features li:hover::before {
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            transform: rotate(360deg);
+        }
+
+        .benefit-card.featured {
+            background: linear-gradient(135deg, rgba(170, 216, 50, 0.2), rgba(0, 217, 255, 0.2));
+            border-color: var(--color-primary-green);
+            position: relative;
+        }
+
+        .benefit-card.featured::after {
+            content: 'DESTACADO';
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            color: var(--color-neutral-900);
+            font-size: 11px;
+            font-weight: 900;
+            border-radius: 100px;
+            letter-spacing: 1px;
+        }
+
+        /* MÓDULOS - Grid Hexagonal */
+        .modulos-section {
+            background: linear-gradient(180deg, #000 0%, #2E1774 50%, #000 100%);
+            position: relative;
+        }
+
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .modulo-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            padding: var(--space-xl);
+            border-radius: 25px;
+            border: 2px solid rgba(170, 216, 50, 0.2);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modulo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(170, 216, 50, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .modulo-card:hover::before {
+            left: 100%;
+        }
+
+        .modulo-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 70px rgba(170, 216, 50, 0.4);
+            border-color: var(--color-primary-green);
+            background: rgba(170, 216, 50, 0.1);
+        }
+
+        .modulo-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary-green), var(--color-accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--color-neutral-900);
+            margin: 0 auto var(--space-md);
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(170, 216, 50, 0.4);
+        }
+
+        .modulo-card:hover .modulo-number {
+            transform: rotateY(360deg) scale(1.2);
+        }
+
+        .modulo-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.4;
+        }
+
+        /* Responsive - Mobile */
+        @media (max-width: 968px) {
+            .hero-container,
+            .benefits-grid,
+            .modulos-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .floating-card-enhanced {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .custom-cursor,
+            .cursor-follower {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cursor personalizado -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/0e2de83a-logo_109m01m000000000000028.png" alt="Workana Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Background animado -->
+        <div class="hero-bg-animation">
+            <div class="diagonal-grid"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Oferta por tiempo limitado</span>
+                    <div class="badge-price">
+                        <span class="price-old">USD $400</span>
+                        <span class="price-new">USD $250</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title">
+                    Acelera tu carrera<br>
+                    <span class="highlight">freelance</span> en Workana
+                </h1>
+
+                <p class="hero-subtitle">
+                    De cero a profesional en 9 módulos
+                </p>
+
+                <p class="hero-description">
+                    Obtén acceso inmediato a capacitaciones profesionales, tu primer proyecto 5 estrellas garantizado y membresía Explorer incluida.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="9">0</span>
+                        <span class="stat-label">Módulos de capacitación</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="1">0</span>
+                        <span class="stat-label">Proyecto 5★ garantizado</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1 año</span>
+                        <span class="stat-label">Membresía Explorer</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#" class="cta-primary">
+                        <span>Comienza ahora</span>
+                        <span class="cta-arrow">→</span>
+                    </a>
+                    <a href="#modulos" class="cta-secondary">
+                        <span>Ver programa</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- La parte visual del hero continuará en parte 2 -->
+    <!-- Este archivo contiene solo los estilos. 
+         Para implementar, copia las secciones HTML correspondientes del archivo parte 1 -->
+    
+    <!-- Ejemplo de estructura para Testimonios -->
+    <section id="testimonios" class="section testimonios-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Historias reales de éxito</div>
+                <h2 class="section-title">Lo que dicen nuestros freelancers</h2>
+                <p class="section-description">
+                    Más de 2,500 profesionales han transformado su carrera con The Accelerator
+                </p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Valoración promedio</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Graduados exitosos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$2,000</span>
+                    <span class="stat-label">Ingreso promedio mensual</span>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=711&fit=crop" alt="María Rodríguez">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div>
+                                <div class="author-name">María Rodríguez</div>
+                                <div class="author-role">Diseñadora UX/UI</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "En solo 6 semanas pasé de no tener clientes a tener mi agenda llena. The Accelerator me dio las herramientas que necesitaba."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=711&fit=crop" alt="Carlos López">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CL</div>
+                            <div>
+                                <div class="author-name">Carlos López</div>
+                                <div class="author-role">Desarrollador Web</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "El módulo de pricing me ayudó a triplicar mis tarifas. Ahora cobro lo que realmente valgo."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=711&fit=crop" alt="Ana García">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AG</div>
+                            <div>
+                                <div class="author-name">Ana García</div>
+                                <div class="author-role">Copywriter</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "Pasé de buscar trabajo a que los clientes me busquen. El programa cambió mi mentalidad."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="section benefits-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Todo lo que necesitas</div>
+                <h2 class="section-title">Acelera tu éxito como freelancer</h2>
+                <p class="section-description">
+                    Tres componentes esenciales que te garantizan el inicio perfecto en tu carrera freelance
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="card-icon-wrapper">📚</div>
+                    <h3 class="card-title">9 módulos de capacitación profesional</h3>
+                    <p class="card-description">
+                        Formación paso a paso diseñada por expertos de Workana para dominar el freelancing
+                    </p>
+                    <ul class="card-features">
+                        <li>Aprende a tu propio ritmo</li>
+                        <li>Contenido actualizado 2025</li>
+                        <li>Certificado al finalizar</li>
+                        <li>Quiz de evaluación incluido</li>
+                        <li>Acceso total por 12 meses</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card featured">
+                    <div class="card-icon-wrapper">⭐</div>
+                    <h3 class="card-title">Tu primer proyecto 5 estrellas garantizado</h3>
+                    <p class="card-description">
+                        Te asignamos un proyecto real según tu especialidad con acompañamiento completo
+                    </p>
+                    <ul class="card-features">
+                        <li>Proyecto real adaptado a tu skill</li>
+                        <li>Feedback profesional continuo</li>
+                        <li>Valoración 5★ en tu perfil</li>
+                        <li>Acelera tu credibilidad</li>
+                        <li>Portfolio desde día 1</li>
+                    </ul>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="card-icon-wrapper">🚀</div>
+                    <h3 class="card-title">Membresía Explorer de Workana</h3>
+                    <p class="card-description">
+                        1 año de beneficios premium para destacar en Workana y conseguir más proyectos
+                    </p>
+                    <ul class="card-features">
+                        <li>Prioridad en aprobación</li>
+                        <li>Comunidad exclusiva en Discord</li>
+                        <li>Hasta 52 postulaciones</li>
+                        <li>Insignias exclusivas</li>
+                        <li>Soporte prioritario 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos Section -->
+    <section id="modulos" class="section modulos-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Tu camino hacia el éxito</div>
+                <h2 class="section-title">9 módulos para dominar el freelancing</h2>
+                <p class="section-description">
+                    Un programa completo diseñado para llevarte de principiante a profesional certificado
+                </p>
+            </div>
+
+            <div class="modulos-grid">
+                <div class="modulo-card">
+                    <div class="modulo-number">1</div>
+                    <h3 class="modulo-title">Fast track para el éxito</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">2</div>
+                    <h3 class="modulo-title">Creación de Marca Personal</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">3</div>
+                    <h3 class="modulo-title">Finanzas Personales</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">4</div>
+                    <h3 class="modulo-title">Negociación efectiva</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">5</div>
+                    <h3 class="modulo-title">Gestión de proyectos y técnicas para mejorar la productividad</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">6</div>
+                    <h3 class="modulo-title">Cómo mantener un equilibrio entre vida personal y laboral</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">7</div>
+                    <h3 class="modulo-title">Herramientas y recursos</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">8</div>
+                    <h3 class="modulo-title">Los secretos mejor guardados de Workana</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">9</div>
+                    <h3 class="modulo-title">Experiencias de otros talentos expertos en trabajo remoto e internacional</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+    <script>
+        // Cursor personalizado
+        const cursor = document.querySelector('.custom-cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animación de contadores
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        };
+
+        // Ejecutar animación de contadores al cargar
+        setTimeout(animateCounters, 500);
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Ripple effect en CTAs
+        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.cssText = `
+                    position: absolute;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 0;
+                    height: 0;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.6);
+                    transform: translate(-50%, -50%);
+                    animation: ripple-effect 0.6s ease-out;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Agregar keyframes para ripple
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-effect {
+                to {
+                    width: 300px;
+                    height: 300px;
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        // Animación de scroll reveal para secciones
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'all 1s cubic-bezier(0.4, 0, 0.2, 1)';
+            sectionObserver.observe(section);
+        });
+
+        // Efecto parallax en testimonios
+        document.querySelectorAll('.testimonial-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Tilt effect en benefit cards
+        document.querySelectorAll('.benefit-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `translateY(-20px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Animación de entrada para módulos
+        document.querySelectorAll('.modulo-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 0.6s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    </script>
+</body>
+</html>
