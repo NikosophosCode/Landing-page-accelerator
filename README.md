@@ -4,6 +4,8 @@
 
 Landing page profesional para el programa de formación freelance **The Accelerator** de Workana. Diseñada para convertir visitantes en estudiantes mediante una experiencia visual atractiva y una estructura de contenido optimizada para la conversión.
 
+Diseño en Figma: https://www.figma.com/design/kvdxmxGQPsJXGSYvYWRR7w/The-Accelerator-mockup?node-id=0-1&t=ZpeqQNTDZOf6Eymk-1
+
 ---
 
 ## 🎯 Mejoras Implementadas
