@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonios - The Accelerator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary-dark: #002D72;
+            --color-primary-green: #AAD832;
+            --color-neutral-900: #181818;
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            padding: 64px 20px;
+            min-height: 100vh;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: white;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 48px;
+            color: var(--color-primary-dark);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Grid de Testimonios */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 45, 114, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 45, 114, 0.15);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, var(--color-primary-dark), #1a4d8f);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-placeholder {
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        .play-button {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            background: rgba(170, 216, 50, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--color-neutral-900);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card:hover .play-button {
+            transform: scale(1.1);
+            background: var(--color-primary-green);
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            padding: 6px 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        .testimonial-content {
+            padding: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary-green), #98C428);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-neutral-900);
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .author-role {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .testimonial-stars {
+            color: #FFB800;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .testimonial-results {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 24px;
+        }
+
+        .result-item {
+            flex: 1;
+        }
+
+        .result-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: block;
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Featured testimonial */
+        .featured-testimonial {
+            background: linear-gradient(135deg, var(--color-primary-dark), #1a4d8f);
+            color: white;
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 400px;
+        }
+
+        .featured-testimonial .video-thumbnail {
+            border-radius: 0;
+        }
+
+        .featured-testimonial .testimonial-content {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-testimonial .author-name,
+        .featured-testimonial .testimonial-quote {
+            color: white;
+        }
+
+        .featured-testimonial .author-role {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .featured-testimonial .testimonial-quote {
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 100px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        /* Logo carousel */
+        .trust-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .trust-title {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .trust-logo {
+            font-size: 32px;
+            color: #999;
+        }
+
+        @media (max-width: 968px) {
+            .section-title {
+                font-size: 32px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-testimonial {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .featured-testimonial .video-thumbnail {
+                aspect-ratio: 16/9;
+            }
+
+            .featured-testimonial .testimonial-content {
+                padding: 32px 24px;
+            }
+
+            .stats-row {
+                gap: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Volver al índice</a>
+
+    <div class="section-container">
+        <div class="section-header">
+            <div class="section-eyebrow">Historias reales de éxito</div>
+            <h2 class="section-title">Lo que dicen nuestros freelancers</h2>
+            <p class="section-description">
+                Más de 1,000 profesionales han transformado su carrera con The Accelerator
+            </p>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-item">
+                <span class="stat-number">4.9/5</span>
+                <span class="stat-label">Valoración promedio</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1,000+</span>
+                <span class="stat-label">Graduados exitosos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">$2,500</span>
+                <span class="stat-label">Ingreso promedio mensual</span>
+            </div>
+        </div>
+
+        <div class="testimonials-grid">
+            <!-- Featured Testimonial -->
+            <div class="testimonial-card featured-testimonial">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👨‍💻</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">2:15</div>
+                </div>
+                <div class="testimonial-content">
+                    <span class="featured-badge">⭐ Historia destacada</span>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <div class="author-name">María Rodríguez</div>
+                            <div class="author-role">Diseñadora UX/UI</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "En solo 6 semanas pasé de no tener clientes a tener mi agenda llena. The Accelerator me dio las herramientas y la confianza que necesitaba. Hoy trabajo con clientes internacionales y gano 3x más que en mi trabajo anterior."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$4,200</span>
+                            <span class="result-label">Primer mes</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">8</span>
+                            <span class="result-label">Proyectos</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">5★</span>
+                            <span class="result-label">Valoración</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👩‍💼</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">1:45</div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CL</div>
+                        <div class="author-info">
+                            <div class="author-name">Carlos López</div>
+                            <div class="author-role">Desarrollador Web</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "El módulo de pricing me ayudó a triplicar mis tarifas. Ahora cobro lo que realmente valgo."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$3,500</span>
+                            <span class="result-label">Mensual</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">12</span>
+                            <span class="result-label">Clientes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👨‍🎨</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">2:30</div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AG</div>
+                        <div class="author-info">
+                            <div class="author-name">Ana García</div>
+                            <div class="author-role">Copywriter</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "Pasé de buscar trabajo a que los clientes me busquen. El programa cambió completamente mi mentalidad."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$2,800</span>
+                            <span class="result-label">Mensual</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">6</span>
+                            <span class="result-label">Retainer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👨‍💻</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">1:50</div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <div class="author-name">Juan Silva</div>
+                            <div class="author-role">Social Media Manager</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "La membresía Explorer más el proyecto 5 estrellas me dieron credibilidad instantánea."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$1,900</span>
+                            <span class="result-label">Mensual</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">4</span>
+                            <span class="result-label">Proyectos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👩‍🎨</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">2:00</div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LM</div>
+                        <div class="author-info">
+                            <div class="author-name">Laura Martínez</div>
+                            <div class="author-role">Ilustradora Digital</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "Nunca pensé que podría vivir de mi arte. Hoy tengo mi propio estudio virtual."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$3,100</span>
+                            <span class="result-label">Mensual</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">9</span>
+                            <span class="result-label">Proyectos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <div class="video-thumbnail">
+                    <div class="video-placeholder">👨‍💼</div>
+                    <div class="play-button">▶</div>
+                    <div class="video-duration">1:55</div>
+                </div>
+                <div class="testimonial-content">
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DP</div>
+                        <div class="author-info">
+                            <div class="author-name">Diego Pérez</div>
+                            <div class="author-role">Consultor SEO</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "Los módulos son súper prácticos. Aplicas lo que aprendes de inmediato."
+                    </p>
+                    <div class="testimonial-results">
+                        <div class="result-item">
+                            <span class="result-value">$5,200</span>
+                            <span class="result-label">Mensual</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-value">7</span>
+                            <span class="result-label">Clientes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Section -->
+        <div class="trust-section">
+            <p class="trust-title">Freelancers trabajando con empresas líderes</p>
+            <div class="trust-logos">
+                <div class="trust-logo">🏢</div>
+                <div class="trust-logo">🏭</div>
+                <div class="trust-logo">🏪</div>
+                <div class="trust-logo">🏛️</div>
+                <div class="trust-logo">🏬</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Click handler para simular reproducción de video
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('click', () => {
+                console.log('Video testimonial clicked');
+                // Aquí iría la lógica para abrir modal de video
+            });
+        });
+
+        // Animación cuando entran en viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

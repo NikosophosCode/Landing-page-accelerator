@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimizado -->
+    <title>The Accelerator | Programa de Formación Freelance Workana</title>
+    <meta name="description" content="Acelera tu carrera freelance con 9 módulos de capacitación, proyecto 5 estrellas garantizado y membresía Explorer. Comienza a ganar en proyectos remotos.">
+    <meta name="keywords" content="freelance, workana, capacitación, trabajo remoto, proyectos, formación online">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Accelerator - Formación Freelance Workana">
+    <meta property="og:description" content="De cero a profesional freelance en 9 módulos. Obtén tu primer proyecto 5 estrellas y membresía Explorer incluida.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://go.workana.com/the-accelerator-es/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Accelerator - Workana">
+    <meta name="twitter:description" content="Programa de formación freelance completo">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colores principales */
+            --color-primary-dark: #002D72;
+            --color-primary-green: #AAD832;
+            --color-primary-white: #FFFFFF;
+            
+            /* Secundarios */
+            --color-secondary-purple-light: #F3F0FE;
+            --color-secondary-purple-dark: #2E1774;
+            
+            /* Neutros */
+            --color-neutral-100: #F8F8F8;
+            --color-neutral-200: #EEEEEE;
+            --color-neutral-300: #D1D1D1;
+            --color-neutral-700: #4A4A4A;
+            --color-neutral-900: #181818;
+            
+            /* Espaciado */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            
+            /* Tipografía */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-neutral-900);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Sticky */
+        .header {
+            background: var(--color-primary-dark);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,45,114,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: #012e72;
+            padding: var(--space-3xl) var(--space-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 8px 16px;
+            background: rgba(170, 216, 50, 0.2);
+            border: 1px solid var(--color-primary-green);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            margin-bottom: var(--space-md);
+        }
+
+        .badge-price {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 8px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 13px;
+        }
+
+        .price-new {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .hero-title .highlight {
+            color: var(--color-primary-green);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-md) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary {
+            padding: 18px 40px;
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+            box-shadow: 0 4px 16px rgba(170, 216, 50, 0.3);
+        }
+
+        .cta-primary:hover {
+            background: #98C428;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(170, 216, 50, 0.5);
+        }
+
+        .cta-secondary {
+            padding: 18px 40px;
+            background: transparent;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            border: 3px solid white;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--color-primary-dark);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 16px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating-card.card-1 {
+            top: 20px;
+            right: -60px;
+            z-index: 10;
+        }
+
+        .floating-card.card-2 {
+            bottom: 40px;
+            left: -60px;
+            animation-delay: 1s;
+            z-index: 10;
+        }
+
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+        }
+
+        .card-subtext {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Section Container */
+        .section {
+            padding: var(--space-3xl) var(--space-lg);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .section-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 48px;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-sm);
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--color-neutral-700);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Testimonios Section */
+        .testimonios-section {
+            background: var(--color-neutral-100);
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 45, 114, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 45, 114, 0.15);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, var(--color-primary-dark), #1a4d8f);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-placeholder {
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        .play-button {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            background: rgba(170, 216, 50, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--color-neutral-900);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .play-button {
+            transform: scale(1.1);
+        }
+
+        .testimonial-content {
+            padding: var(--space-md);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary-green), #98C428);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-neutral-900);
+        }
+
+        .author-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+        }
+
+        .author-role {
+            font-size: 14px;
+            color: var(--color-neutral-700);
+        }
+
+        .testimonial-stars {
+            color: #FFB800;
+            font-size: 16px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Beneficios Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(0, 45, 114, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 45, 114, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary-green), var(--color-primary-dark));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            transform-origin: left;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 45, 114, 0.15);
+            border-color: var(--color-primary-green);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--color-primary-green), #98C428);
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-md);
+            font-size: 40px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(170, 216, 50, 0.3);
+        }
+
+        .benefit-card:hover .card-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 24px rgba(170, 216, 50, 0.5);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-features {
+            list-style: none;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-features li {
+            font-size: 14px;
+            color: #555;
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .card-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary-green);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .benefit-card.featured {
+            background: linear-gradient(135deg, rgba(0, 45, 114, 0.95), rgba(46, 23, 116, 0.95));
+            backdrop-filter: blur(20px);
+            color: white;
+            border-color: var(--color-primary-green);
+        }
+
+        .benefit-card.featured .card-title {
+            color: white;
+        }
+
+        .benefit-card.featured .card-description,
+        .benefit-card.featured .card-features li {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            padding: 6px 12px;
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 100px;
+            text-transform: uppercase;
+        }
+
+        /* Módulos Section - Simplificado */
+        .modulos-section {
+            background: linear-gradient(to bottom, #fdfeff 0%, #f3f0fe 100%);
+        }
+
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .modulo-card {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .modulo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 45, 114, 0.12);
+            border-color: var(--color-primary-green);
+        }
+
+        .modulo-number {
+            width: 60px;
+            height: 60px;
+            background-image: url('https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/e010f37b-workana-logo_1000000000000000000028.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-neutral-900);
+            margin: 0 auto var(--space-sm);
+            position: relative;
+        }
+
+        .modulo-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            line-height: 1.3;
+        }
+
+        /* Why Workana Section */
+        .why-workana-section {
+            background: white;
+        }
+
+        .workana-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .workana-stat-item {
+            text-align: center;
+        }
+
+        .workana-stat-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: block;
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+
+        .workana-stat-label {
+            font-size: 16px;
+            color: var(--color-neutral-700);
+            line-height: 1.4;
+        }
+
+        .workana-images-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+
+        .workana-image-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            animation: fadeInScale 0.6s ease-out backwards;
+        }
+
+        .workana-image-card:nth-child(1) { animation-delay: 0.1s; }
+        .workana-image-card:nth-child(2) { animation-delay: 0.2s; }
+        .workana-image-card:nth-child(3) { animation-delay: 0.3s; }
+        .workana-image-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .workana-image-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 32px rgba(0, 45, 114, 0.15);
+        }
+
+        .workana-image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: var(--space-md);
+            border: 2px solid var(--color-neutral-200);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--color-primary-green);
+        }
+
+        .faq-question {
+            padding: var(--space-md);
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--color-neutral-100);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 var(--space-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: var(--space-md);
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            color: var(--color-neutral-700);
+            line-height: 1.6;
+        }
+
+        /* CTA Final Section */
+        .cta-final-section {
+            background: linear-gradient(135deg, var(--color-primary-dark), var(--color-secondary-purple-dark));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-final-title {
+            font-family: var(--font-secondary);
+            font-size: 40px;
+            margin-bottom: var(--space-sm);
+            color: white;
+        }
+
+        .cta-final-text {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: var(--space-lg);
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-neutral-200);
+            padding: var(--space-xl) var(--space-lg);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--color-neutral-700);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-neutral-700);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .hero-image-placeholder {
+                width: 100%;
+            }
+
+            .hero-image-container {
+                width: 92%;
+                height: 92%;
+            }
+
+            .hero-visual {
+                height: 312px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .floating-card {
+                padding: 12px 16px;
+                max-width: 180px;
+            }
+
+            .floating-card.card-1 {
+                top: -27px;
+                right: -27px;
+            }
+
+            .floating-card.card-2 {
+                bottom: -50px;
+                left: -20px;
+            }
+
+            .card-text {
+                font-size: 12px;
+            }
+
+            .card-subtext {
+                font-size: 11px;
+            }
+
+            .card-icon {
+                font-size: 20px;
+                margin-bottom: 4px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .modulos-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .workana-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-lg);
+            }
+
+            .workana-stat-number {
+                font-size: 40px;
+            }
+
+            .workana-images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit-card {
+                padding: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo"><img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/0e2de83a-logo_109m01m000000000000028.png" alt="Workana Logo" style="max-width: 55%; height: auto;"></div>
+            <nav class="nav-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span>✨</span>
+                    <span>Oferta por tiempo limitado</span>
+                    <div class="badge-price">
+                        <span class="price-old">USD $400</span>
+                        <span class="price-new">USD $250</span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title">
+                    Acelera tu carrera<br>
+                    <span class="highlight">freelance</span> en Workana
+                </h1>
+
+                <p class="hero-subtitle">
+                    De cero a profesional en 9 módulos
+                </p>
+
+                <p class="hero-description">
+                    Obtén acceso inmediato a capacitaciones profesionales, tu primer proyecto 5 estrellas garantizado y membresía Explorer incluida.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Módulos de capacitación</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Proyecto 5★ garantizado</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1 año</span>
+                        <span class="stat-label">Membresía Explorer</span>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#" class="cta-primary">
+                        Comienza ahora
+                        <span>→</span>
+                    </a>
+                    <a href="#modulos" class="cta-secondary">
+                        Ver programa
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image-placeholder">
+                        <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/ae44dcda-img-1_100000000000000000001o.jpg" alt="">
+                    </div>
+                </div>
+                
+                <div class="floating-card card-1">
+                    <div class="card-icon">💰</div>
+                    <div class="card-text">Proyectos con ganancias de $2000</div>
+                    <div class="card-subtext">Ingresos mensuales promedio</div>
+                </div>
+
+                <div class="floating-card card-2">
+                    <div class="card-icon">⏱️</div>
+                    <div class="card-text">Completa en 1 día o 3 meses</div>
+                    <div class="card-subtext">¡A tu propio ritmo!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="section testimonios-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Historias reales de éxito</div>
+                <h2 class="section-title">Lo que dicen nuestros freelancers</h2>
+                <p class="section-description">
+                    Más de 2,500 profesionales han transformado su carrera con The Accelerator
+                </p>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number">4.9/5</span>
+                    <span class="stat-label">Valoración promedio</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2,500+</span>
+                    <span class="stat-label">Graduados exitosos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$2,000</span>
+                    <span class="stat-label">Ingreso promedio mensual</span>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=711&fit=crop" alt="María Rodríguez - Testimonio" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div>
+                                <div class="author-name">María Rodríguez</div>
+                                <div class="author-role">Diseñadora UX/UI</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "En solo 6 semanas pasé de no tener clientes a tener mi agenda llena. The Accelerator me dio las herramientas que necesitaba."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=711&fit=crop" alt="Carlos López - Testimonio" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CL</div>
+                            <div>
+                                <div class="author-name">Carlos López</div>
+                                <div class="author-role">Desarrollador Web</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "El módulo de pricing me ayudó a triplicar mis tarifas. Ahora cobro lo que realmente valgo."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=711&fit=crop" alt="Ana García - Testimonio" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AG</div>
+                            <div>
+                                <div class="author-name">Ana García</div>
+                                <div class="author-role">Copywriter</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-quote">
+                            "Pasé de buscar trabajo a que los clientes me busquen. El programa cambió mi mentalidad."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Todo lo que necesitas</div>
+                <h2 class="section-title">Acelera tu éxito como freelancer</h2>
+                <p class="section-description">
+                    Tres componentes esenciales que te garantizan el inicio perfecto en tu carrera freelance
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <!-- Beneficio 1 -->
+                <div class="benefit-card">
+                    <div class="card-icon-wrapper">📚</div>
+                    <h3 class="card-title">9 módulos de capacitación profesional</h3>
+                    <p class="card-description">
+                        Formación paso a paso diseñada por expertos de Workana para dominar el freelancing
+                    </p>
+                    <ul class="card-features">
+                        <li>Aprende a tu propio ritmo</li>
+                        <li>Contenido actualizado 2025</li>
+                        <li>Certificado al finalizar</li>
+                        <li>Quiz de evaluación incluido</li>
+                        <li>Acceso total por 12 meses</li>
+                    </ul>
+                </div>
+
+                <!-- Beneficio 2 - Featured -->
+                <div class="benefit-card featured">
+                    <div class="card-icon-wrapper">⭐</div>
+                    <h3 class="card-title">Tu primer proyecto 5 estrellas garantizado</h3>
+                    <p class="card-description">
+                        Te asignamos un proyecto real según tu especialidad con acompañamiento completo
+                    </p>
+                    <ul class="card-features">
+                        <li>Proyecto real adaptado a tu skill</li>
+                        <li>Feedback profesional continuo</li>
+                        <li>Valoración 5★ en tu perfil</li>
+                        <li>Acelera tu credibilidad</li>
+                        <li>Portfolio desde día 1</li>
+                    </ul>
+                </div>
+
+                <!-- Beneficio 3 -->
+                <div class="benefit-card">
+                    <div class="card-icon-wrapper">🚀</div>
+                    <h3 class="card-title">Membresía Explorer de Workana</h3>
+                    <p class="card-description">
+                        1 año de beneficios premium para destacar en Workana y conseguir más proyectos
+                    </p>
+                    <ul class="card-features">
+                        <li>Prioridad en aprobación</li>
+                        <li>Comunidad exclusiva en Discord</li>
+                        <li>Hasta 52 postulaciones</li>
+                        <li>Insignias exclusivas</li>
+                        <li>Soporte prioritario 24/7</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos Section - Simplificado -->
+    <section id="modulos" class="section modulos-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Tu camino hacia el éxito</div>
+                <h2 class="section-title">9 módulos para dominar el freelancing</h2>
+                <p class="section-description">
+                    Un programa completo diseñado para llevarte de principiante a profesional certificado
+                </p>
+            </div>
+
+            <div class="modulos-grid">
+                <div class="modulo-card">
+                    <div class="modulo-number">1</div>
+                    <h3 class="modulo-title">Fast track para el éxito</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">2</div>
+                    <h3 class="modulo-title">Creación de Marca Personal</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">3</div>
+                    <h3 class="modulo-title">Finanzas Personales</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">4</div>
+                    <h3 class="modulo-title">Negociación efectiva
+                    </h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">5</div>
+                    <h3 class="modulo-title">Gestión de proyectos y ténicas para mejorar la productividad</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">6</div>
+                    <h3 class="modulo-title">Cómo mantener un equilibrio entre vida personal y laboral</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">7</div>
+                    <h3 class="modulo-title">Herramientas y recursos
+</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">8</div>
+                    <h3 class="modulo-title">Los secretos mejor guardados de Workana</h3>
+                </div>
+
+                <div class="modulo-card">
+                    <div class="modulo-number">9</div>
+                    <h3 class="modulo-title">Experiencias de otros talentos expertos en trabajo remoto e internacional</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Workana Section -->
+    <section class="section why-workana-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">¿Por qué Workana?</h2>
+            </div>
+
+            <div class="workana-stats">
+                <div class="workana-stat-item">
+                    <span class="workana-stat-number">+22K</span>
+                    <p class="workana-stat-label">Nuevos proyectos por mes</p>
+                </div>
+                <div class="workana-stat-item">
+                    <span class="workana-stat-number">+7K</span>
+                    <p class="workana-stat-label">Nuevos clientes por mes</p>
+                </div>
+                <div class="workana-stat-item">
+                    <span class="workana-stat-number">+50</span>
+                    <p class="workana-stat-label">Categorías de proyectos</p>
+                </div>
+                <div class="workana-stat-item">
+                    <span class="workana-stat-number">+25</span>
+                    <p class="workana-stat-label">Países disponibles</p>
+                </div>
+            </div>
+
+            <div class="workana-images-grid">
+                <div class="workana-image-card">
+                    <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/a59e5c3d-card-3_100000000000000000001o.jpg" alt="Workana Platform" loading="lazy">
+                </div>
+                <div class="workana-image-card">
+                    <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/7a960436-card-4_100000000000000000001o.jpg" alt="Workana Projects" loading="lazy">
+                </div>
+                <div class="workana-image-card">
+                    <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/5d35940a-card-6_100000000000000000001o.jpg" alt="Workana Community" loading="lazy">
+                </div>
+                <div class="workana-image-card">
+                    <img src="https://d9hhrg4mnvzow.cloudfront.net/go.workana.com/the-accelerator-es/9453982f-card-7_100000000000000000001o.jpg" alt="Workana Success" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-eyebrow">Preguntas frecuentes</div>
+                <h2 class="section-title">¿Tienes dudas?</h2>
+                <p class="section-description">
+                    Encuentra respuestas a las preguntas más comunes sobre The Accelerator
+                </p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Qué es The Accelerator?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Es un programa diseñado por Workana orientado a las personas que quieren comenzar su carrera freelance. Brinda herramientas y habilidades para comenzar a trabajar profesionalmente de forma remota e independiente.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cómo funciona el sistema de certificación?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Al finalizar cada módulo de capacitación, deberás completar un quiz para pasar al siguiente nivel. Si los apruebas todos, tendrás acceso al desafío final que será tu primer proyecto 5 estrellas en Workana.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cuándo se activa la membresía Explorer?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La membresía Explorer se te activará una vez que termines el curso y te durará un año, luego puedes renovar por el plan que quieras en la sección de "Beneficios" en Workana.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Necesito experiencia previa?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, el programa está diseñado para personas que quieren comenzar su carrera freelance desde cero. Te guiaremos paso a paso desde los fundamentos hasta técnicas avanzadas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>¿Cómo puedo pagar el programa?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos múltiples métodos de pago incluyendo tarjetas de crédito, débito y transferencias bancarias. El proceso es completamente seguro a través de nuestra plataforma de pagos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="section cta-final-section">
+        <div class="section-container">
+            <h2 class="cta-final-title">¿Listo para transformar tu carrera?</h2>
+            <p class="cta-final-text">Únete a más de 2,500 freelancers que ya están construyendo su futuro</p>
+            <a href="#" class="cta-primary">
+                Asegura tu lugar hoy
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Workana</div>
+            <p class="footer-text">
+                The Accelerator - Programa de formación freelance profesional
+            </p>
+            <p class="footer-text">
+                © 2025 Workana. Todos los derechos reservados.
+            </p>
+            <div class="footer-links">
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Soporte</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Cerrar todos los items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Abrir el clickeado si no estaba activo
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animación de entrada para elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos que deben animarse
+        document.querySelectorAll('.timeline-item, .benefit-card, .testimonial-card, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Animación de contadores en hero
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            const text = stat.textContent.trim();
+            const number = parseInt(text);
+            
+            // Solo animar si es un número puro (sin caracteres especiales)
+            if (!isNaN(number) && /^\d+$/.test(text)) {
+                let count = 0;
+                const duration = 2000;
+                const increment = number / (duration / 16);
+
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= number) {
+                        stat.textContent = number;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(count);
+                    }
+                }, 16);
+            }
+            // Si contiene caracteres especiales (/, +, etc), dejarlo como está
+        });
+
+        // Console log para tracking de clicks en CTAs
+        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                console.log('CTA clicked:', e.target.textContent.trim());
+            });
+        });
+
+        // Video testimonial placeholder click
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('click', () => {
+                console.log('Video testimonial clicked');
+                // Aquí se integraría el modal de video
+            });
+        });
+    </script>
+</body>
+</html>

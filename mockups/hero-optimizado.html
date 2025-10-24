@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section Optimizado - The Accelerator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary-dark: #002D72;
+            --color-primary-green: #AAD832;
+            --color-primary-white: #FFFFFF;
+            --color-neutral-900: #181818;
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, #002D72 0%, #003d8f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 16px 32px;
+            border-radius: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 64px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(170, 216, 50, 0.2);
+            border: 1px solid var(--color-primary-green);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero-title .highlight {
+            color: var(--color-primary-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-primary-green);
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-primary-green);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .cta-primary {
+            padding: 16px 32px;
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .cta-primary:hover {
+            background: #98C428;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(170, 216, 50, 0.3);
+        }
+
+        .cta-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border: 2px solid white;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: var(--color-primary-dark);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(170, 216, 50, 0.2), rgba(46, 23, 116, 0.2));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            font-size: 120px;
+            opacity: 0.3;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            padding: 16px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating-card.card-1 {
+            top: 40px;
+            right: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-card.card-2 {
+            bottom: 60px;
+            left: -30px;
+            animation-delay: 1s;
+        }
+
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+        }
+
+        .card-subtext {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            margin-top: 32px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .trust-icon {
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+        }
+
+        /* Back button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 12px 24px;
+            background: white;
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">← Volver al índice</a>
+
+    <div class="hero-container">
+        <header class="header">
+            <div class="logo">Workana</div>
+            <nav class="nav-links">
+                <a href="#beneficios">Beneficios</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="badge">
+                    <span>✨</span>
+                    <span>Oferta por tiempo limitado</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Acelera tu carrera<br>
+                    <span class="highlight">freelance</span> en Workana
+                </h1>
+
+                <p class="hero-subtitle">
+                    De cero a profesional en 9 módulos
+                </p>
+
+                <p class="hero-description">
+                    Obtén acceso inmediato a capacitaciones profesionales, tu primer proyecto 5 estrellas garantizado y membresía Explorer incluida.
+                </p>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Módulos de capacitación</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Proyecto 5★ garantizado</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1 año</span>
+                        <span class="stat-label">Membresía Explorer</span>
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="#" class="cta-primary">
+                        Comienza ahora
+                        <span>→</span>
+                    </a>
+                    <a href="#modulos" class="cta-secondary">
+                        Ver programa
+                    </a>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-icon">✓</span>
+                        <span>+1,000 freelancers certificados</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-icon">⭐</span>
+                        <span>4.9/5 valoración promedio</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image-placeholder">🚀</div>
+                </div>
+                
+                <div class="floating-card card-1">
+                    <div class="card-icon">💰</div>
+                    <div class="card-text">Proyectos desde $500</div>
+                    <div class="card-subtext">Ingresos mensuales promedio</div>
+                </div>
+
+                <div class="floating-card card-2">
+                    <div class="card-icon">⏱️</div>
+                    <div class="card-text">Completa en 4-6 semanas</div>
+                    <div class="card-subtext">A tu propio ritmo</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animación de contadores
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            const text = stat.textContent;
+            if (!isNaN(parseInt(text))) {
+                let count = 0;
+                const target = parseInt(text);
+                const duration = 2000;
+                const increment = target / (duration / 16);
+
+                const timer = setInterval(() => {
+                    count += increment;
+                    if (count >= target) {
+                        stat.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(count);
+                    }
+                }, 16);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Accelerator - Mockups de Rediseño</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colores principales */
+            --color-primary-dark: #002D72;
+            --color-primary-green: #AAD832;
+            --color-primary-white: #FFFFFF;
+            
+            /* Secundarios */
+            --color-secondary-purple-light: #F3F0FE;
+            --color-secondary-purple-dark: #2E1774;
+            
+            /* Neutros */
+            --color-neutral-100: #F8F8F8;
+            --color-neutral-200: #EEEEEE;
+            --color-neutral-300: #D1D1D1;
+            --color-neutral-700: #4A4A4A;
+            --color-neutral-900: #181818;
+            
+            /* Espaciado */
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 32px;
+            --space-xl: 48px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+            
+            /* Tipografía */
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-neutral-900);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .mockup-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+        }
+
+        .mockup-header {
+            background: var(--color-neutral-100);
+            padding: var(--space-xl);
+            border-radius: 16px;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .mockup-header h1 {
+            font-family: var(--font-secondary);
+            font-size: 48px;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .mockup-header p {
+            font-size: 18px;
+            color: var(--color-neutral-700);
+        }
+
+        .mockup-section {
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-xl);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,45,114,0.08);
+        }
+
+        .mockup-section h2 {
+            font-family: var(--font-secondary);
+            font-size: 32px;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 3px solid var(--color-primary-green);
+        }
+
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .mockup-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--space-lg);
+            box-shadow: 0 4px 20px rgba(0,45,114,0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .mockup-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,45,114,0.15);
+        }
+
+        .mockup-card h3 {
+            font-size: 24px;
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .mockup-card p {
+            color: var(--color-neutral-700);
+            font-size: 16px;
+        }
+
+        .mockup-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--color-primary-green);
+            color: var(--color-neutral-900);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: var(--space-md);
+        }
+
+        .mockup-link:hover {
+            background: #98C428;
+            transform: scale(1.05);
+        }
+
+        .preview-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--color-secondary-purple-light);
+            color: var(--color-secondary-purple-dark);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: var(--space-sm);
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .comparison-box {
+            padding: var(--space-lg);
+            border-radius: 12px;
+        }
+
+        .comparison-box.before {
+            background: #FFE5E5;
+            border: 2px solid #FF6B6B;
+        }
+
+        .comparison-box.after {
+            background: #E5F8E5;
+            border: 2px solid #4CAF50;
+        }
+
+        .comparison-box h4 {
+            font-size: 18px;
+            margin-bottom: var(--space-sm);
+        }
+
+        @media (max-width: 768px) {
+            .mockup-header h1 {
+                font-size: 32px;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .mockup-section {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mockup-container">
+        <div class="mockup-header">
+            <h1>🎨 Mockups de Rediseño</h1>
+            <p>The Accelerator - Landing Page Optimizada | Versión 2.0</p>
+        </div>
+
+        <div class="mockup-section">
+            <h2>📱 Mockups Principales</h2>
+            <div class="mockup-grid">
+                <div class="mockup-card">
+                    <span class="preview-badge">Hero Optimizado</span>
+                    <h3>01. Hero Section</h3>
+                    <p>Hero modernizado con mejor jerarquía visual, título optimizado y CTA mejorado</p>
+                    <a href="hero-optimizado.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+
+                <div class="mockup-card">
+                    <span class="preview-badge">Value Proposition</span>
+                    <h3>02. Beneficios Cards</h3>
+                    <p>Cards de beneficios con hover states y diseño moderno glassmorphism</p>
+                    <a href="beneficios-cards.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+
+                <div class="mockup-card">
+                    <span class="preview-badge">Social Proof</span>
+                    <h3>03. Testimonios</h3>
+                    <p>Sección de testimonios reposicionada con video thumbnails branded</p>
+                    <a href="testimonios.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+
+                <div class="mockup-card">
+                    <span class="preview-badge">Módulos</span>
+                    <h3>04. Timeline Módulos</h3>
+                    <p>Representación visual de los 9 módulos con progress indicator animado</p>
+                    <a href="modulos-timeline.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+
+                <div class="mockup-card">
+                    <span class="preview-badge">Componentes</span>
+                    <h3>05. CTAs Mejorados</h3>
+                    <p>Sistema de botones diferenciados con micro-interacciones</p>
+                    <a href="ctas-sistema.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+
+                <div class="mockup-card">
+                    <span class="preview-badge">Full Page</span>
+                    <h3>06. Landing Completa</h3>
+                    <p>Vista completa de la landing page optimizada con todas las mejoras</p>
+                    <a href="landing-completa.html" class="mockup-link">
+                        Ver Mockup →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-section">
+            <h2>🔄 Comparativas Antes/Después</h2>
+            <div class="comparison-container">
+                <div class="comparison-box before">
+                    <h4>❌ Versión Actual</h4>
+                    <ul style="margin-left: 20px; margin-top: 12px;">
+                        <li>Título hero 64px (muy grande mobile)</li>
+                        <li>4 familias de fuentes (sobrecarga)</li>
+                        <li>Sin metadata SEO (title vacío)</li>
+                        <li>Testimonios muy abajo (posición 23)</li>
+                        <li>CTAs genéricos sin diferenciación</li>
+                        <li>Sin lazy loading imágenes</li>
+                    </ul>
+                </div>
+                <div class="comparison-box after">
+                    <h4>✅ Versión Optimizada</h4>
+                    <ul style="margin-left: 20px; margin-top: 12px;">
+                        <li>Título hero 48px desktop / 32px mobile</li>
+                        <li>2 familias de fuentes (Inter + Merriweather)</li>
+                        <li>Metadata completa + Schema.org</li>
+                        <li>Testimonios después de hero (posición 2)</li>
+                        <li>3 variantes de CTA contextualizados</li>
+                        <li>Lazy loading + WebP + srcset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-section">
+            <h2>📊 Mejoras de Performance</h2>
+            <div style="margin-top: var(--space-lg);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
+                    <div style="text-align: center; padding: var(--space-lg); background: var(--color-neutral-100); border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--color-primary-green);">-50%</div>
+                        <div style="font-size: 14px; color: var(--color-neutral-700); margin-top: 8px;">Page Load Time</div>
+                    </div>
+                    <div style="text-align: center; padding: var(--space-lg); background: var(--color-neutral-100); border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--color-primary-green);">+25%</div>
+                        <div style="font-size: 14px; color: var(--color-neutral-700); margin-top: 8px;">Conversion Rate</div>
+                    </div>
+                    <div style="text-align: center; padding: var(--space-lg); background: var(--color-neutral-100); border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--color-primary-green);">+60%</div>
+                        <div style="font-size: 14px; color: var(--color-neutral-700); margin-top: 8px;">Mobile Conversion</div>
+                    </div>
+                    <div style="text-align: center; padding: var(--space-lg); background: var(--color-neutral-100); border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: var(--color-primary-green);">-30%</div>
+                        <div style="font-size: 14px; color: var(--color-neutral-700); margin-top: 8px;">Bounce Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mockup-section">
+            <h2>🎨 Sistema de Diseño</h2>
+            <p style="margin-bottom: var(--space-lg);">Componentes reutilizables y tokens de diseño</p>
+            <a href="design-system.html" class="mockup-link">Ver Design System Completo →</a>
+        </div>
+    </div>
+</body>
+</html>
